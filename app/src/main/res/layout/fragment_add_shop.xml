@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="@dimen/_16dp"
+    android:paddingVertical="@dimen/_20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/imgBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_arrow_back"
+        android:layout_marginTop="@dimen/_8dp"
+        app:layout_constraintTop_toTopOf="@id/txtTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/txtTitle"
+        />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Добавить магазин"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/_20sp"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="@dimen/_12dp"
+    android:paddingHorizontal="@dimen/_24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ф.И.О"
+            android:textSize="@dimen/_12sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginTop="@dimen/_16dp"/>
+
+        <EditText
+            android:id="@+id/etSurname"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48dp"
+            android:background="@drawable/bg_input"
+            android:hint="@string/fill_fields"
+            android:textSize="@dimen/_14sp"
+            android:paddingStart="@dimen/_12dp"
+            android:paddingEnd="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"/>
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_number"
+        android:textSize="@dimen/_12sp"
+        android:textStyle="bold"
+        android:textColor="@color/gray"
+        android:layout_marginTop="@dimen/_16dp"/>
+
+        <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48dp"
+        android:background="@drawable/bg_input"
+        android:hint="@string/fill_fields"
+        android:textSize="@dimen/_14sp"
+        android:paddingStart="@dimen/_12dp"
+        android:paddingEnd="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:gravity="center_vertical"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ИНН Магазина"
+            android:textSize="@dimen/_12sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginTop="@dimen/_16dp"/>
+
+        <EditText
+            android:id="@+id/etShopInfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48dp"
+            android:background="@drawable/bg_input"
+            android:hint="@string/fill_fields"
+            android:textSize="@dimen/_14sp"
+            android:paddingStart="@dimen/_12dp"
+            android:paddingEnd="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/living_area"
+            android:textSize="@dimen/_12sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginTop="@dimen/_16dp"/>
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48dp"
+            android:background="@drawable/bg_input"
+            android:hint="@string/fill_fields"
+            android:textSize="@dimen/_14sp"
+            android:paddingStart="@dimen/_12dp"
+            android:paddingEnd="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_12dp"
+            android:drawableEnd="@drawable/ic_chevron_up"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Адрес"
+            android:textSize="@dimen/_12sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginTop="@dimen/_16dp"/>
+
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48dp"
+            android:background="@drawable/bg_input"
+            android:hint="@string/fill_fields"
+            android:textSize="@dimen/_14sp"
+            android:paddingStart="@dimen/_12dp"
+            android:paddingEnd="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"/>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPostSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_32dp"
+        android:text="@string/generalInfo"
+        android:textSize="@dimen/_16sp"
+        app:backgroundTint="@null"
+        android:background="@drawable/bg_button"
+        android:paddingVertical="@dimen/_12dp"
+        app:layout_constraintTop_toBottomOf="@id/line1"
+        app:layout_constraintEnd_toEndOf="@id/line1"
+        app:layout_constraintStart_toStartOf="@id/line1"
+        android:layout_marginTop="@dimen/_24dp" />
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

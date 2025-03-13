@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="@dimen/_16dp"
+    android:paddingVertical="@dimen/_40dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/txtMonthYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сентябрь 2024"
+        android:layout_marginStart="@dimen/_12dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <ImageView
+        android:id="@+id/imgPrevMonth"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="@dimen/_2dp"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginStart="@dimen/_12dp"
+        android:background="@drawable/ic_arrow_back"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/imgNextMonth"
+        app:layout_constraintTop_toTopOf="@id/txtMonthYear" />
+
+    <ImageView
+        android:id="@+id/imgNextMonth"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:backgroundTint="@color/black"
+        android:layout_marginEnd="@dimen/_12dp"
+        android:background="@drawable/ic_arrow_back"
+        android:rotationY="180"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgPrevMonth"
+        />
+
+    <LinearLayout
+        android:id="@+id/llCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintTop_toBottomOf="@id/txtMonthYear">
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Пн"
+            android:textSize="14sp"
+            android:layout_marginStart="@dimen/_8dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+          />
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Вт"
+            android:textSize="14sp"
+            android:layout_marginStart="@dimen/_8dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_8dp"
+            android:text="Ср"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Чт"
+            android:textSize="14sp"
+            android:layout_marginStart="@dimen/_8dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Пт"
+            android:layout_marginStart="@dimen/_8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Сб"
+            android:layout_marginStart="@dimen/_8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Вс"
+            android:layout_marginStart="@dimen/_8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/_8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llCalendar"
+        android:background="#EDF1F3"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+

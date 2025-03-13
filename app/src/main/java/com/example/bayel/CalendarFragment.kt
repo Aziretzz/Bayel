@@ -1,12 +1,8 @@
 package com.example.bayel
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-
 import android.os.Build
+import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -21,35 +17,34 @@ import java.time.format.DateTimeFormatter
 import android.widget.Toast;
 import java.util.ArrayList;
 
-
-class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
+class CalendarFragment : Fragment(), CalendarAdapter.OnItemListener {
 
     private lateinit var monthYearText: TextView
     private lateinit var calendarRecyclerView: RecyclerView
-
     @RequiresApi(Build.VERSION_CODES.O)
     private var selectedDate: LocalDate = LocalDate.now()
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.dialog_calendar) // Тут должен быть layout с твоим календарем
-
-        initWidgets()
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.dialog_calendar, container, false)
+        initWidgets(view)
         setMonthView()
+        return view
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun initWidgets() {
-        calendarRecyclerView = findViewById(R.id.rcCalendar)
-        monthYearText = findViewById(R.id.txtMonthYear)
+    private fun initWidgets(view: View) {
+        calendarRecyclerView = view.findViewById(R.id.rcCalendar)
+        monthYearText = view.findViewById(R.id.txtMonthYear)
 
-        findViewById<View>(R.id.imgPrevMonth).setOnClickListener {
+        view.findViewById<View>(R.id.imgPrevMonth).setOnClickListener {
             previousMonthAction()
         }
 
-        findViewById<View>(R.id.imgNextMonth).setOnClickListener {
+        view.findViewById<View>(R.id.imgNextMonth).setOnClickListener {
             nextMonthAction()
         }
     }
@@ -60,7 +55,7 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
         val daysInMonth = daysInMonthArray(selectedDate)
 
         val calendarAdapter = CalendarAdapter(daysInMonth, this)
-        val layoutManager = GridLayoutManager(this, 7)
+        val layoutManager = GridLayoutManager(requireContext(), 7)
         calendarRecyclerView.layoutManager = layoutManager
         calendarRecyclerView.adapter = calendarAdapter
     }
@@ -106,7 +101,7 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
     override fun onItemClick(position: Int, dayText: String) {
         if (dayText.isNotEmpty()) {
             val message = "Selected Date $dayText ${monthYearFromDate(selectedDate)}"
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
         }
     }
 }
